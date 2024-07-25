@@ -1,0 +1,14 @@
+document.getElementById('voteForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const selectedCandidate = formData.get('candidate');
+
+    if (selectedCandidate) {
+        document.getElementById('message').textContent = `Thank you for voting for ${selectedCandidate}!`;
+        // Here you would normally send the vote to the server using fetch or XMLHttpRequest
+    } else {
+        document.getElementById('message').textContent = 'Please select a candidate before submitting your vote.';
+    }
+});
